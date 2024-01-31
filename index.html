@@ -3,44 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentinstags-Website</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Passwortgeschützte Seite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #676464;
+        }
+
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #cd69ee;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<header>
-    <h1>Happy Valentine's Day meine kleine Kimi <3</h1>
-</header>
-<nav>
-    <ul>
-        <li><a href="#home" class="active">Start</a></li> <!-- "active" Klasse für den Startreiter hinzugefügt -->
-        <li><a href="#letter">Brief</a></li>
-        <li><a href="#cats">Extras</a></li>
-    </ul>
-</nav>
-<main>
-    <section id="home" class="content">
-        <h2>have u lieb</h2>
-        <p>An diesem Tage hat dir dein IT-Nerd etwas kleines gebastelt</p>
-        <img src="valentine.png" alt="Valentine's Day" class="small-image">
-    </section>
-    <section id="letter" class="content">
-        <h2>Love Letter</h2>
-        <p>Meine Kimi,</p>
-        <p>von mir bekommst du diesesmal einen digitalen Brief, ...
-            ....
-            ....
-            ....</p>
-        <p>in Liebe,</p>
-        <p>Erik <3</p>
-    </section>
-    <section id="cats" class="content">
-        <h2>Ein paar süße extras</h2>
-        <p>... ein paar kätzchen</p>
-        <img src="cats.png" alt="Cats" class="small-image">
-    </section>
-</main>
-<footer>
-    <p>&copy; 2024 Kim's Valentinstags-Website. All rights reserved to Erik Ostendorf.</p>
-</footer>
+<div class="container">
+    <form id="passwordForm">
+        <label for="password">Passwort:(wie heißt dein Bettpartner)</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<script>
+    document.getElementById("passwordForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        var password = document.getElementById("password").value; // Get the entered password
+
+        // Check if the entered password matches the desired password
+        if (password === "Ricky") {
+            window.location.href = "site.html"; // Redirect to the desired page
+        } else {
+            alert("Falsches Passwort! Bitte versuche es erneut."); // Show an error message
+        }
+    });
+</script>
 </body>
 </html>

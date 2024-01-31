@@ -66,12 +66,10 @@ footer {
     width: 100%;
 }
 
-/* Neue Klasse für das Bild auf der Startseite */
 .small-image {
     width: 200px; /* Kleinere Breite für das Bild */
 }
 
-/* Stil für den Briefabschnitt */
 #letter {
     font-weight: bold; /* Text im Briefabschnitt fett gemacht */
 }

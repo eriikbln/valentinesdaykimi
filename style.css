@@ -40,6 +40,12 @@ main {
 
 .content {
     text-align: center;
+    display: none;
+}
+
+#home:target,
+#letter:target {
+    display: block;
 }
 
 h1, h2 {
@@ -55,7 +61,3 @@ footer {
     bottom: 0;
     width: 100%;
 }
-main section {
-    display: none;
-}
-

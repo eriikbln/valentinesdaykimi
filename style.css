@@ -43,8 +43,8 @@ main {
     display: none;
 }
 
-#home:target,
-#letter:target {
+#home.active,
+#letter.active {
     display: block;
 }
 

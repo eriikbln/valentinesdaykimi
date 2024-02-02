@@ -5,6 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eriks-Valentinstags-Website</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gemeinsame Stile für die Seite */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Stile für das Geschenk */
+        #gift {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+        #gift img {
+            width: 200px;
+        }
+
+        /* Stile für die Rose */
+        #rose {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            z-index: 9999;
+        }
+
+        #rose img {
+            width: 150px;
+        }
+
+        /* Stile für das Konfetti */
+        #confetti {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        #confetti img {
+            width: 550px;
+        }
+
+    </style>
 </head>
 <body>
 <header>
@@ -18,6 +69,18 @@
     </ul>
 </nav>
 <main>
+    <!-- Geschenk -->
+    <div id="gift">
+        <img src="gift.png" alt="Geschenk" id="giftImage">
+    </div>
+    <!-- Rose -->
+    <div id="rose">
+        <img src="rose.png" alt="Rose">
+    </div>
+    <!-- Konfetti -->
+    <div id="confetti">
+        <img src="konfetti.png" alt="Konfetti" id="confettiImage">
+    </div>
     <section id="home" class="content">
         <h2>have u lieb</h2>
         <p>An diesem Tage hat dir dein IT-Nerd etwas kleines gebastelt</p>
@@ -42,5 +105,62 @@
 <footer>
     <p>&copy; 2024 Kim's Valentinstags-Website. All rights reserved to Erik.</p>
 </footer>
+
+<script>
+    // JavaScript, um das Geschenk und die Rose zu steuern
+    document.addEventListener("DOMContentLoaded", function() {
+        var gift = document.getElementById("gift");
+        var rose = document.getElementById("rose");
+        var confetti = document.getElementById("confetti");
+
+        // Funktion zum Anzeigen und Ausblenden des Geschenks
+        function toggleGift() {
+            if (gift.style.display === "none") {
+                gift.style.display = "block"; // Geschenk anzeigen
+            } else {
+                gift.style.display = "none"; // Geschenk ausblenden
+            }
+        }
+
+        // Funktion zum Anzeigen der Rose und des Konfetti-Effekts
+        function showRose() {
+            rose.style.display = "block";
+            setTimeout(function() {
+                rose.style.display = "none";
+                toggleGift(); // Geschenk wieder anzeigen, nachdem die Rose verschwunden ist
+            }, 2000); // Verberge die Rose nach 2 Sekunden
+            createConfetti();
+        }
+
+        // Funktion zum Erstellen des Konfettis mit Flash-Effekt
+        function createConfetti() {
+            for (var i = 0; i < 10; i++) {
+                // Konfetti schnell anzeigen und dann ausblenden
+                setTimeout(function() {
+                    confetti.style.display = "block"; // Konfetti anzeigen
+                }, i * 100); // Zeitversatz für schnelles Anzeigen
+                setTimeout(function() {
+                    confetti.style.display = "none"; // Konfetti ausblenden
+                }, (i * 100) + 50); // Zeitversatz für schnelles Ausblenden
+            }
+        }
+
+
+        // Eventlistener für das Geschenk
+        gift.addEventListener("click", function() {
+            toggleGift();
+            showRose(); // Anzeigen der Rose beim Klicken auf das Geschenk
+        });
+
+        // Eventlistener für die Navigationslinks
+        var navLinks = document.querySelectorAll("nav a");
+        navLinks.forEach(function(link) {
+            link.addEventListener("click", function() {
+                gift.style.display = "none"; // Geschenk ausblenden
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

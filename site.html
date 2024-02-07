@@ -63,9 +63,9 @@
 </header>
 <nav>
     <ul>
-        <li><a href="#home" class="active">Start</a></li> <!-- "active" Klasse für den Startreiter hinzugefügt -->
-        <li><a href="#letter">Brief</a></li>
-        <li><a href="#cats">Extras</a></li>
+        <li><a href="#home" class="active"><strong>Start</strong></a></li>
+        <li><a href="#letter"><strong>Brief</strong></a></li>
+        <li><a href="#cats"><strong>Extras</strong></a></li>
     </ul>
 </nav>
 <main>
@@ -83,23 +83,39 @@
     </div>
     <section id="home" class="content">
         <h2>have u lieb</h2>
-        <p>An diesem Tage hat dir dein IT-Nerd etwas kleines gebastelt</p>
-        <img src="valentine.png" alt="Valentine's Day" class="small-image">
+        <p style="margin-top: 40px;">An diesem Tage hat dir dein IT-Nerd etwas kleines gebastelt 🤣</p>
+        <p style="margin-top: 40px;">Ich hoffe es gefällt dir <3</p>
+        <img src="valentine.png" alt="Valentine's Day" class="small-image" style="margin-top: 40px;">
     </section>
     <section id="letter" class="content">
         <h2>Love Letter</h2>
         <p>Meine Kimi,</p>
-        <p>von mir bekommst du dieses mal einen digitalen Brief, ...
-            ....
-            ....
-            ....</p>
+        <p>von mir bekommst du dieses Mal einen etwas anderen Brief,</p>
+        <p>knapp 5 Monate ist es nun her, da haben wir uns auf der Insel getroffen und es ist das passiert,</p>
+        <p>womit ich an diesem Tag am aller wenigsten gerechnet hätte.</p>
+        <p>Ich habe ein Mädchen kennengelernt mit einer unfassbar atemberaubenden Ausstrahlung,</p>
+        <p>einem so ansteckendem Lächeln sowie unglaublich gutem Humor.</p>
+        <p>Dass ich mich dann ausgerechnet auf der Liebesinsel Hals über Kopf in genau dieses Mädchen verliebe,</p>
+        <p>vervollständigt diesen ganz besonderen Tag auf perfekte Weise.</p>
+        <p>Mittlerweile haben wir sogar einfach Urlaub zusammen gebucht und ich war mir noch nie mit einer Person so sicher</p>
+        <p>,dass es klappen und eine unfassbar schöne Zeit wird, wie mit dir!</p>
+        <p>Danke Kim, dass du immer ehrlich zu mir bist, immer für mich da bist und mir Liebe sowie Aufmerksamkeit schenkst.</p>
+        <p>Ich habe dich in dieser doch so kurzen Zeit so sehr in mein Herz sowie Leben geschlossen</p>
+        <p>und merke wie du mich bereicherst, täglich glücklich machst sowie zum lachen bringst.</p>
+        <p>Bleib für immer ein so positiv einzigartiger und herzlicher Mensch wie du bist</p>
+        <p>Du bist mein Lieblingsmensch <3</p>
         <p>in Liebe,</p>
-        <p>Erik <3</p>
+        <p>Rick</p>
     </section>
     <section id="cats" class="content">
-        <h2>Ein paar süße extras</h2>
-        <p>... ein paar kätzchen</p>
         <img src="cats.png" alt="Cats" class="small-image">
+        <div id="datingQuestion">
+            <h3 style="font-weight: bold; font-size: 24px;">Do you still want to date me?</h3>
+            <button id="yesButton">Yes</button>
+            <button id="noButton">No</button>
+            <div id="buttonMessage" style="display: none;"></div>
+        </div>
+        <iframe style="margin-top: 40px;" width="460" height="215" src="https://www.youtube.com/embed/FPuzt3miSDI?si=9Qb40CM8_fe8D9hw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </section>
 </main>
 <footer>
@@ -108,7 +124,7 @@
 
 <script>
     // JavaScript, um das Geschenk und die Rose zu steuern
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         var gift = document.getElementById("gift");
         var rose = document.getElementById("rose");
         var confetti = document.getElementById("confetti");
@@ -125,7 +141,7 @@
         // Funktion zum Anzeigen der Rose und des Konfetti-Effekts
         function showRose() {
             rose.style.display = "block";
-            setTimeout(function() {
+            setTimeout(function () {
                 rose.style.display = "none";
                 toggleGift(); // Geschenk wieder anzeigen, nachdem die Rose verschwunden ist
             }, 2000); // Verberge die Rose nach 2 Sekunden
@@ -136,10 +152,10 @@
         function createConfetti() {
             for (var i = 0; i < 10; i++) {
                 // Konfetti schnell anzeigen und dann ausblenden
-                setTimeout(function() {
+                setTimeout(function () {
                     confetti.style.display = "block"; // Konfetti anzeigen
                 }, i * 100); // Zeitversatz für schnelles Anzeigen
-                setTimeout(function() {
+                setTimeout(function () {
                     confetti.style.display = "none"; // Konfetti ausblenden
                 }, (i * 100) + 50); // Zeitversatz für schnelles Ausblenden
             }
@@ -147,19 +163,94 @@
 
 
         // Eventlistener für das Geschenk
-        gift.addEventListener("click", function() {
+        gift.addEventListener("click", function () {
             toggleGift();
             showRose(); // Anzeigen der Rose beim Klicken auf das Geschenk
         });
 
         // Eventlistener für die Navigationslinks
         var navLinks = document.querySelectorAll("nav a");
-        navLinks.forEach(function(link) {
-            link.addEventListener("click", function() {
+        navLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
                 gift.style.display = "none"; // Geschenk ausblenden
             });
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var noButton = document.getElementById("noButton");
+
+        noButton.addEventListener("click", function () {
+            // Berechne eine zufällige Position in der Nähe der Bildschirmmitte
+            var centerX = window.innerWidth / 2;
+            var centerY = window.innerHeight / 2;
+            var range = 400; // Bereich um die Mitte
+
+            // Zufällige X-Koordinate in einem Bereich von +/- range / 2 um die Mitte
+            var randomX = centerX - range / 2 + Math.random() * range;
+
+            // Zufällige Y-Koordinate in einem Bereich von +/- range / 2 um die Mitte
+            var randomY = centerY - range / 2 + Math.random() * range;
+
+            // Verschiebe den Button in die berechnete Position
+            noButton.style.position = "fixed"; // Stelle sicher, dass der Button positioniert ist
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var noButton = document.getElementById("noButton");
+        var yesButton = document.getElementById("yesButton");
+        var buttonMessage = document.getElementById("buttonMessage");
+
+        function showButtonMessage(text) {
+            buttonMessage.textContent = text;
+            buttonMessage.style.display = "block";
+            setTimeout(function () {
+                buttonMessage.style.display = "none";
+            }, 2000); // Verberge die Nachricht nach 2 Sekunden
+        }
+
+        noButton.addEventListener("click", function () {
+            showButtonMessage("Der Button ist nur Deko! 😒");
+        });
+
+        yesButton.addEventListener("click", function () {
+            showButtonMessage("Richtige Wahl! 😉");
+            showHeartAnimation()
+        });
+    });
+
+    function showHeartAnimation() {
+        var heart = document.createElement("div"); // Neues div-Element für das Herz erstellen
+        heart.innerHTML = "&hearts;"; // HTML-Entity für ein Herzsymbol einfügen
+        heart.style.position = "fixed"; // Position des Herzens auf festlegen, um es über den Inhalten anzuzeigen
+        heart.style.top = "50%"; // Vertikal zentrieren
+        heart.style.left = "50%"; // Horizontal zentrieren
+        heart.style.transform = "translate(-50%, -50%)"; // Zentrierung mit translate verschieben
+        heart.style.fontSize = "50px"; // Anfangsgröße des Herzens festlegen
+        heart.style.color = "red"; // Farbe des Herzens auf Rot setzen
+        heart.style.transition = "font-size 2s ease-in-out"; // Übergang für die Größenänderung hinzufügen
+        document.body.appendChild(heart); // Herz zum Dokument hinzufügen
+
+        // Herz größer machen
+        setTimeout(function () {
+            heart.style.fontSize = "500px"; // Neue Größe des Herzens festlegen
+        }, 100); // Wartezeit vor der Größenänderung
+
+        // Herz wieder verschwinden lassen
+        setTimeout(function () {
+            heart.style.fontSize = "0"; // Größe auf 0 setzen, um das Herz zu verbergen
+            setTimeout(function () {
+                heart.remove(); // Herz aus dem Dokument entfernen
+            }, 2000); // Wartezeit, bevor das Herz entfernt wird (nachdem es unsichtbar ist)
+        }, 3000); // Wartezeit, bevor das Herz verschwindet (nachdem es die maximale Größe erreicht hat)
+    }
+
+
+
 </script>
 
 </body>

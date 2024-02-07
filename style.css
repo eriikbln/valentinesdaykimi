@@ -52,7 +52,7 @@ main {
     display: block;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -78,3 +78,31 @@ label {
     font-weight: bold; /* Fetter Text */
 }
 
+#datingQuestion {
+    margin-top: 50px;
+}
+
+#noButton {
+    position: relative;
+}
+
+#noButton.clicked {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#noButton {
+    background-color: red;
+    color: white; /* Textfarbe auf Weiß setzen, um besser sichtbar zu sein */
+}
+
+#yesButton {
+    background-color: green;
+    color: white; /* Textfarbe auf Weiß setzen, um besser sichtbar zu sein */
+}
+
+#buttonMessage {
+    margin-top: 25px; /* Füge unten 20 Pixel Abstand hinzu */
+}

@@ -9,13 +9,15 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #676464;
+            background-image: url('img.png'); /* Hintergrundbild hinzugefügt */
+            background-size: cover; /* Bild wird auf die gesamte Bildschirmgröße skaliert */
+            background-repeat: no-repeat; /* Bild wird nicht wiederholt */
         }
 
         .container {
             width: 300px;
             margin: 100px auto;
-            background-color: #fff;
+            background-color: #e8e1e1;
             border-radius: 5px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -48,7 +50,8 @@
 <body>
 <div class="container">
     <form id="passwordForm">
-        <label for="password">Passwort:(wie heißt dein Bettpartner)</label>
+        <label for="password">Passwort:</label>
+        <p style="font-size: small">(wie heißt dein kleiner Liebling)</p>
         <input type="password" id="password" name="password">
         <input type="submit" value="Login">
     </form>

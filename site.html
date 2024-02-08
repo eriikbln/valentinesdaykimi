@@ -38,7 +38,7 @@
         }
 
         #rose img {
-            width: 150px;
+            width: 350px;
         }
 
         /* Stile für das Konfetti */
@@ -59,16 +59,17 @@
 </head>
 <body>
 <header>
-    <h1>Happy Valentine's Day meine kleine Kimi <3</h1>
+    <h1>🤍 Happy Valentine's Day meine kleine Kimi 🤍</h1>
 </header>
 <nav>
     <ul>
-        <li><a href="#home" class="active"><strong>Start</strong></a></li>
-        <li><a href="#letter"><strong>Brief</strong></a></li>
-        <li><a href="#cats"><strong>Extras</strong></a></li>
+        <li><a href="#home" class="active"><strong>💡</strong></a></li>
+        <li><a href="#letter"><strong>💗</strong></a></li>
+        <li><a href="#cats"><strong>♾️</strong></a></li>
     </ul>
 </nav>
 <main>
+
     <!-- Geschenk -->
     <div id="gift">
         <img src="gift.png" alt="Geschenk" id="giftImage">
@@ -81,10 +82,13 @@
     <div id="confetti">
         <img src="konfetti.png" alt="Konfetti" id="confettiImage">
     </div>
+
     <section id="home" class="content">
         <h2>have u lieb</h2>
-        <p style="margin-top: 40px;">An diesem Tage hat dir dein IT-Nerd etwas kleines gebastelt 🤣</p>
-        <p style="margin-top: 40px;">Ich hoffe es gefällt dir <3</p>
+        <p style="margin-top: 40px; font-weight: bold">An diesem Tage hat dir dein IT-Nerd etwas kleines gebastelt 🤣</p>
+        <p style="margin-top: 40px; font-weight: bold">Alles was du hier siehst stammt komplett aus dem Köpfchen deines
+            Kumpels Rick.</p>
+        <p style="margin-top: 40px; font-weight: bold">Ich hoffe es gefällt dir <3</p>
         <img src="valentine.png" alt="Valentine's Day" class="small-image" style="margin-top: 40px;">
     </section>
     <section id="letter" class="content">
@@ -97,9 +101,11 @@
         <p>einem so ansteckendem Lächeln sowie unglaublich gutem Humor.</p>
         <p>Dass ich mich dann ausgerechnet auf der Liebesinsel Hals über Kopf in genau dieses Mädchen verliebe,</p>
         <p>vervollständigt diesen ganz besonderen Tag auf perfekte Weise.</p>
-        <p>Mittlerweile haben wir sogar einfach Urlaub zusammen gebucht und ich war mir noch nie mit einer Person so sicher</p>
+        <p>Mittlerweile haben wir sogar einfach Urlaub zusammen gebucht und ich war mir noch nie mit einer Person so
+            sicher</p>
         <p>,dass es klappen und eine unfassbar schöne Zeit wird, wie mit dir!</p>
-        <p>Danke Kim, dass du immer ehrlich zu mir bist, immer für mich da bist und mir Liebe sowie Aufmerksamkeit schenkst.</p>
+        <p>Danke Kim, dass du immer ehrlich zu mir bist, immer für mich da bist und mir Liebe sowie Aufmerksamkeit
+            schenkst.</p>
         <p>Ich habe dich in dieser doch so kurzen Zeit so sehr in mein Herz sowie Leben geschlossen</p>
         <p>und merke wie du mich bereicherst, täglich glücklich machst sowie zum lachen bringst.</p>
         <p>Bleib für immer ein so positiv einzigartiger und herzlicher Mensch wie du bist</p>
@@ -108,14 +114,19 @@
         <p>Rick</p>
     </section>
     <section id="cats" class="content">
-        <img src="cats.png" alt="Cats" class="small-image">
         <div id="datingQuestion">
             <h3 style="font-weight: bold; font-size: 24px;">Do you still want to date me?</h3>
             <button id="yesButton">Yes</button>
             <button id="noButton">No</button>
             <div id="buttonMessage" style="display: none;"></div>
         </div>
-        <iframe style="margin-top: 40px;" width="460" height="215" src="https://www.youtube.com/embed/FPuzt3miSDI?si=9Qb40CM8_fe8D9hw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe style="margin-top: 40px;" width="460" height="215"
+                src="https://www.youtube.com/embed/FPuzt3miSDI?si=9Qb40CM8_fe8D9hw" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <p></p>
+        <img src="cats.png" alt="Cats" class="small-image">
     </section>
 </main>
 <footer>
@@ -144,7 +155,7 @@
             setTimeout(function () {
                 rose.style.display = "none";
                 toggleGift(); // Geschenk wieder anzeigen, nachdem die Rose verschwunden ist
-            }, 2000); // Verberge die Rose nach 2 Sekunden
+            }, 3000); // Verberge die Rose nach 2 Sekunden
             createConfetti();
         }
 
@@ -183,7 +194,7 @@
         noButton.addEventListener("click", function () {
             // Berechne eine zufällige Position in der Nähe der Bildschirmmitte
             var centerX = window.innerWidth / 2;
-            var centerY = window.innerHeight / 2;
+            var centerY = window.innerHeight / 2 - 200;
             var range = 400; // Bereich um die Mitte
 
             // Zufällige X-Koordinate in einem Bereich von +/- range / 2 um die Mitte
@@ -248,7 +259,6 @@
             }, 2000); // Wartezeit, bevor das Herz entfernt wird (nachdem es unsichtbar ist)
         }, 3000); // Wartezeit, bevor das Herz verschwindet (nachdem es die maximale Größe erreicht hat)
     }
-
 
 
 </script>
